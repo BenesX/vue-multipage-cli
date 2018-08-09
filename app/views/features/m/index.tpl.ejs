@@ -1,0 +1,51 @@
+<% if (htmlWebpackPlugin.options.isProduct) { %>
+    <%- include ../webpack/app/layout/m/head.ejs %>
+<% } else { %>
+    <%- include ../webpack/app/layout/m/head-dev.ejs %>
+<% } %>
+
+<% if (htmlWebpackPlugin.options.isProduct) { %>
+<script type="text/javascript">
+
+    const templetData = {
+        isLogin: '<?php echo $this->user_id; ?>',
+        currentTab: "<?php echo $_GET['app']; ?>",
+        genomesList: '<?php echo json_encode($this->genomes_list); ?>',
+        masterId: "<?php echo $this->gene_master_report['unique_id']; ?>",
+        processSamplesList: '<?php echo json_encode($this->user_in_process_samples); ?>',
+        reportName: "<?php echo $this->gene_master_report['name']; ?>",
+        relationShipCount: '<?php echo $this->dna_relationship_count; ?>',
+        relationShipCountAdded: '<?php echo $this->dna_relatives_link_count_by_unique_id; ?>'
+    };
+
+    window.templetData = templetData;
+
+</script>
+<% } else { %>
+<script type="text/javascript">
+
+    const templetData = {
+        isLogin: true,
+        currentTab: 'home',
+        genomesList: '{"342":{"name":"benes","unique_id":"342"}}',
+        masterId: '342',
+        processSamplesList: '{"123":{"name":"you","barcode":"123"}}',
+        reportName: 'we',
+        relationShipCount: 2,
+        relationShipCountAdded: 1
+    };
+
+    window.templetData = templetData;
+
+</script>
+<% } %>
+<div id="app">
+</div>
+<script type="text/javascript" src="/static/app/assets/common/vendor.dll.js"></script>
+
+
+<% if (htmlWebpackPlugin.options.isProduct) { %>
+    <%- include ../webpack/app/layout/m/foot.ejs %>
+<% } else { %>
+    <%- include ../webpack/app/layout/m/foot-dev.ejs %>
+<% } %>

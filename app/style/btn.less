@@ -1,0 +1,103 @@
+/* 按钮 */
+.btn {
+	height: 32px;
+	min-width: 80px;
+	padding: 0 12px;
+	line-height: 32px;
+	border:none;
+	box-shadow: none;
+	border-radius: 30px;
+	font-synthesis:none;
+	border: 1px solid #fff;
+	text-rendering:optimizeLegibility;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	-moz-font-feature-settings:'liga', 'kern';
+}
+.btn:active, .btn.active{box-shadow: none;}
+.btn:visited{color: #fff;}
+.btn:hover {
+	opacity: 0.8;
+	color: #fff;
+}
+.btn:hover i{color: #fff !important;}
+.btn:active {
+	opacity: 1;
+}
+.btn-mini {
+	min-width: 50px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+}
+.btn-normal {
+	min-width: 150px;
+	height: 50px;
+	padding: 0 30px;
+	line-height: 50px;
+	font-weight: 400;
+	font-size: 16px;
+}
+.btn-large {
+	height: 50px;
+	line-height: 50px;
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.btn-primary, .label-primary, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:hover{
+	background-color: #4fb1f7;
+	border-color: #4fb1f7;
+}
+.btn-primary.disabled, .btn-primary.disabled:hover{
+	background-color: #e6e6e6 !important;
+	border-color: #e6e6e6;
+	color: #fff;
+}
+.btn-primary.active, .btn-primary.active:hover, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.focus:active, .btn-primary:active:focus, .btn-primary:active:hover {
+	background: #fff;
+	border: 1px solid #4fb1f7;
+	color: #4fb1f7;
+}
+.btn-primary:focus {
+	background-color: #4fb1f7;
+}
+
+.btn-disabled, .btn-disabled:hover, .btn-disabled:active
+{
+	background-color: #E6E6E6;color: #ccc;border-color: #E6E6E6;
+}
+
+.btn-gray {background-color: #666666;border-color: #666666; color: #fff;}
+.btn-green {background-color: #8ddcde;border-color: #8ddcde;color: #fff;}
+.btn-cyan {background: #8edee0;border-color: #8edee0;color:#fff;}
+.btn-yellow {background: #ffcc80;border-color: #ffcc80;color:#fff;}
+.btn-orange {background: #FFAB73;border-color: #FFAB73; color: #fff;}
+.btn-23andme {background: #f25584;border-color: #f25584; color: #fff;}
+.btn-23andme i{font-size: 20px;}
+.btn-hollow {
+	background: transparent;border: 1px solid #4fb1f7;color: #4fb1f7 !important;
+	&:hover {
+		background: transparent;
+		i {
+			color: #4fb1f7 !important;
+		}
+	}
+	&:active {
+		background: #4fb1f7;
+		color: #fff !important;
+		i {
+			color: #fff !important;
+		}
+	}
+}
+.btn-red {
+	background: #ff9595;
+	border-color: #ff9595;
+	color: #fff;
+	&.active {
+		background: #fff;
+		border: 1px solid #ff9595;
+		color: #ff9595;
+	}
+}

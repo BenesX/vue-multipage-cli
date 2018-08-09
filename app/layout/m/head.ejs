@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="<?php echo X_UA_COMPATIBLE; ?>" />
+<meta name="renderer" content="webkit" />
+<meta name="applicable-device" content="pc,mobile" />
+<title><?php echo $this->page_title; ?></title>
+<meta name="keywords" content="<?php echo $this->_meta_keywords; ?>" />
+<meta name="description" content="<?php echo $this->_meta_description; ?>"  />
+<base href="<?php echo base_url();?>/<?php if (get_setting('url_rewrite_enable') != 'Y') { ?><?php echo G_INDEX_SCRIPT; ?><?php } ?>" /><!--[if IE]></base><![endif]-->
+<link href="<?php echo G_STATIC_URL; ?>/dist/img/favicon.ico?v=<?php echo G_VERSION_BUILD; ?>" rel="shortcut icon" type="image/x-icon" />
+<link rel="apple-touch-icon" sizes="144x144" href="<?php echo G_STATIC_URL; ?>/common/apple-touch-icon-144.jpg" />
+<link rel="apple-touch-icon" sizes="114x114" href="<?php echo G_STATIC_URL; ?>/common/apple-touch-icon-114.jpg" />
+
+<link rel="stylesheet" type="text/css" href="/static/dist/css/bootstrap.css?v=<?php echo G_VERSION_BUILD; ?>" />
+<link rel="stylesheet" type="text/css" href="/static/dist/css/icon.css?v=<?php echo G_VERSION_BUILD; ?>" />
+
+<?php $post_hash_var_name = strtoupper(md5(time() . $this->userinfo['salt'])); ?>
+<script type="text/javascript">
+	var _<?php echo $post_hash_var_name; ?>="<?php echo new_post_hash(); ?>";
+	var G_POST_HASH=_<?php echo $post_hash_var_name; ?>;
+	var G_INDEX_SCRIPT = "<?php if (get_setting('url_rewrite_enable') != 'Y') echo G_INDEX_SCRIPT; ?>";
+	var G_SITE_NAME = "<?php echo addcslashes(get_setting('site_name'), '\"'); ?>";
+	var G_BASE_URL = "<?php echo base_url(); if (get_setting('url_rewrite_enable') != 'Y') { ?>/<?php echo rtrim(G_INDEX_SCRIPT, '/'); } ?>";
+	var G_STATIC_URL = "<?php echo G_STATIC_URL; ?>";
+	var G_UPLOAD_URL = "<?php echo get_setting('upload_url'); ?>";
+	var G_USER_ID = "<?php echo $this->user_id; ?>";
+	var G_MOBILE_VALID = "<?php echo $this->user_info['mobile_valid']; ?>";
+
+	var G_UPLOAD_ENABLE = "<?php echo get_setting('upload_enable'); ?>";
+	var G_CAN_CREATE_TOPIC = "<?php echo $this->user_info['permission']['create_topic']; ?>";
+
+	<?php if (human_valid('question_valid_hour')) { ?>
+	var G_QUICK_PUBLISH_HUMAN_VALID = true;
+	<?php } ?>
+
+	var G_RESEARCH = '<?php echo $_GET['next']; ?>';
+	var G_COOKIE_PREFIX = "<?php echo G_COOKIE_PREFIX; ?>";
+	var G_COOKIE_DOMAIN = "<?php echo G_COOKIE_DOMAIN; ?>";
+</script>
+<!--[if lte IE 8]>
+	<script type="text/javascript" src="<?php echo G_STATIC_URL; ?>/js/respond.js"></script>
+<![endif]-->
+<?php if ($_GET['_source'] AND $this->cps_source_data) { ?>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$.cookie('_source', '<?php echo $this->cps_source_data; ?>', { expires: 1, path: '/' });
+	});
+</script>
+<?php } ?>
+<script type="text/javascript">
+// Cookie State Check
+$(document).ready(function () {
+	if (navigator.cookieEnabled)
+	{
+		if (!$.cookie('WEGENE_BOOTSTRAP_COOKIE_TEST'))
+		{
+			$.cookie('WEGENE_BOOTSTRAP_COOKIE_TEST', 1, { path: '/' });
+		}
+
+		if (!$.cookie('WEGENE_BOOTSTRAP_COOKIE_TEST'))
+		{
+			$('#disabled-cookie').show();
+		}
+
+		$.removeCookie('WEGENE_BOOTSTRAP_COOKIE_TEST', { path: '/' });
+	}
+	else
+	{
+		$('#disabled-cookie').show();
+	}
+});
+</script>
+</head>
+
+<noscript unselectable="on" id="noscript">
+    <div class="disabled-js">
+		<img class="logo" width="187" src="https://www.wegene.com/static/dist/new/m/logo.svg" />
+		<div class="text-center">
+			<img width="190" src="https://www.wegene.com/static/dist/new/m/js-required.svg" />
+			<h1>需要启用 JavaScript</h1>
+			<p>
+				使用 WeGene 需要启用 JavaScript, 请启用后刷新页面获得更好的体验
+			</p>
+		</div>
+    </div>
+</noscript>
+<body>

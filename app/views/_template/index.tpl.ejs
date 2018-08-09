@@ -1,0 +1,16 @@
+<% if (htmlWebpackPlugin.options.isProduct) { %>
+    <%- include ../webpack/app/layout/m/head.ejs %>
+<% } else { %>
+    <%- include ../webpack/app/layout/m/head-dev.ejs %>
+<% } %>
+
+<div id="app">
+</div>
+<script type="text/javascript" src="/static/dist/common/vendor.dll.js"></script>
+
+
+<% if (htmlWebpackPlugin.options.isProduct) { %>
+    <%- include ../webpack/app/layout/m/foot.ejs %>
+<% } else { %>
+    <%- include ../webpack/app/layout/m/foot-dev.ejs %>
+<% } %>
